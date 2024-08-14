@@ -12,7 +12,6 @@ import {
   MenubarTrigger,
 } from "@/components/ui/menubar";
 import { themes } from "@/constants";
-import { Item } from "@radix-ui/react-menubar";
 
 const Theme = () => {
   const { mode, setMode } = useTheme();
