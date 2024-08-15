@@ -1,4 +1,5 @@
 "use client";
+
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import React from "react";
@@ -25,18 +26,21 @@ const LocalSearchbar = ({
       {iconPosition === "left" && (
         <Image
           src={imgSrc}
-          alt="local search"
+          alt="search icon"
           width={24}
           height={24}
           className="cursor-pointer"
         />
       )}
+
       <Input
         type="text"
         placeholder={placeholder}
-        className="background-light800_darkgradient border-none paragraph-regular text-dark400_light700 placeholder shadow-none outline-none no-focus"
+        value=""
         onChange={() => {}}
+        className="paragraph-regular no-focus placeholder background-light800_darkgradient border-none shadow-none outline-none"
       />
+
       {iconPosition === "right" && (
         <Image
           src={imgSrc}
