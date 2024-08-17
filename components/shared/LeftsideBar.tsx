@@ -23,7 +23,7 @@ const LeftsideBar = () => {
           return (
             <Link
               key={item.route}
-              href={item.label}
+              href={item.route}
               className={`${
                 isActive
                   ? "primary-gradient rounded-lg text-light-900"
