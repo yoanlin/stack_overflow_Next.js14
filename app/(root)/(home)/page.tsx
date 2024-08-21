@@ -7,57 +7,11 @@ import { Button } from "@/components/ui/button";
 import { HomePageFilters } from "@/constants/filters";
 import Link from "next/link";
 import React from "react";
+import { getQuestions } from "@/lib/actions/question.action";
 
-const questions = [
-  {
-    _id: "1",
-    title:
-      "Best practices for data fetching in a Next.js application with Server-Side Rendering (SSR)?",
-    tags: [
-      { _id: "1", name: "next" },
-      { _id: "2", name: "react" },
-    ],
-    author: {
-      _id: "1",
-      name: "John Doe",
-      picture: "https://randomuser.me/api/portraits/men/1.jpg",
-    },
-    upvotes: 85465,
-    views: 10818530,
-    answers: [{}],
-    createdAt: new Date("2024-08-01T12:00:00.000Z"),
-  },
-  {
-    _id: "2",
-    title: "Redux Toolkit Not Updating State as Expected",
-    tags: [{ _id: "3", name: "Redux" }],
-    author: {
-      _id: "1",
-      name: "John Doe",
-      picture: "https://randomuser.me/api/portraits/men/1.jpg",
-    },
-    upvotes: 6,
-    views: 100,
-    answers: [{}],
-    createdAt: new Date("2023-09-01T12:00:00.000Z"),
-  },
-  {
-    _id: "3",
-    title: "Async/Await Function Not Handling Errors Properly?",
-    tags: [{ _id: "4", name: "javascript" }],
-    author: {
-      _id: "1",
-      name: "John Doe",
-      picture: "https://randomuser.me/api/portraits/men/1.jpg",
-    },
-    upvotes: 10,
-    views: 100,
-    answers: [{}],
-    createdAt: new Date("2023-09-01T12:00:00.000Z"),
-  },
-];
+export default async function Home() {
+  const result = await getQuestions({});
 
-export default function Home() {
   return (
     <>
       <div className="flex w-full flex-col-reverse justify-between gap-4 sm:flex-row sm:items-center">
@@ -86,8 +40,8 @@ export default function Home() {
       <HomeFilters />
 
       <div className="mt-10 flex w-full flex-col gap-6">
-        {questions.length > 0 ? (
-          questions.map((question) => (
+        {result.questions.length > 0 ? (
+          result.questions.map((question) => (
             <QuestionCard
               key={question._id}
               _id={question._id}
