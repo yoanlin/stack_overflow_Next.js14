@@ -51,8 +51,6 @@ export async function POST(req: Request) {
     });
   }
 
-  // Do something with the payload
-  // For this guide, you simply log the payload to the console
   const eventType = evt.type;
 
   console.log({ eventType });
@@ -65,11 +63,11 @@ export async function POST(req: Request) {
     const mongoUser = await createUser({
       clerkId: id,
       name: `${first_name}${last_name ? `${last_name}` : ""}`,
-      username: username!,
+      username: username || "Userx",
       email: email_addresses[0].email_address,
       picture: image_url,
     });
-    return NextResponse.json({ message: "OK", user: mongoUser });
+    return NextResponse.json({ message: "Create OK", user: mongoUser });
   }
 
   if (eventType === "user.updated") {
@@ -87,7 +85,7 @@ export async function POST(req: Request) {
       },
       path: `/profile/${id}`,
     });
-    return NextResponse.json({ message: "OK", user: mongoUser });
+    return NextResponse.json({ message: "Update OK", user: mongoUser });
   }
 
   if (eventType === "user.deleted") {
@@ -97,7 +95,7 @@ export async function POST(req: Request) {
       clerkId: id!,
     });
 
-    return NextResponse.json({ message: "OK", user: deletedUser });
+    return NextResponse.json({ message: "Delete OK", user: deletedUser });
   }
 
   return new Response("", { status: 200 });
