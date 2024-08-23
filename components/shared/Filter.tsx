@@ -34,7 +34,11 @@ const Filter = ({ filters, otherClasses, containerClasses }: Props) => {
         <SelectContent>
           <SelectGroup>
             {filters.map((filter) => (
-              <SelectItem key={filter.value} value={filter.value}>
+              <SelectItem
+                key={filter.value}
+                value={filter.value}
+                className="hover:bg-slate-100"
+              >
                 {filter.name}
               </SelectItem>
             ))}
