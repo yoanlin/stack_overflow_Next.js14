@@ -9,14 +9,17 @@ export interface IAnswer extends Document {
   createdAt: Date;
 }
 
-const AnswerSchema = new Schema({
-  author: { type: Schema.Types.ObjectId, ref: "User", required: true },
-  question: { type: Schema.Types.ObjectId, ref: "Question", required: true },
-  content: { type: String, required: true },
-  upvotes: { type: Schema.Types.ObjectId, ref: "User" },
-  downvotes: { type: Schema.Types.ObjectId, ref: "User" },
-  createdAt: { type: Date, default: Date.now },
-});
+const AnswerSchema = new Schema(
+  {
+    author: { type: Schema.Types.ObjectId, ref: "User", required: true },
+    question: { type: Schema.Types.ObjectId, ref: "Question", required: true },
+    content: { type: String, required: true },
+    upvotes: [{ type: Schema.Types.ObjectId, ref: "User", default: [] }],
+    downvotes: [{ type: Schema.Types.ObjectId, ref: "User", default: [] }],
+    createdAt: { type: Date, default: Date.now },
+  },
+  { minimize: false }
+);
 
 const Answer = models.Answer || model("Answer", AnswerSchema);
 
