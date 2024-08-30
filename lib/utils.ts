@@ -50,3 +50,10 @@ export const formatAndDivideNumber = (num: number): string => {
     return num.toString();
   }
 };
+
+export function getJoinedDate(date: Date): string {
+  const month = date.toLocaleString("default", { month: "long" }); // Get the full month name
+  const year = date.getFullYear(); // Get the year
+
+  return `${month} ${year}`;
+}
