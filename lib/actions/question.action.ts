@@ -8,10 +8,12 @@ import {
   CreateQuestionParams,
   GetQuestionByIdParams,
   GetQuestionsParams,
+  GetUserByIdParams,
   QuestionVoteParams,
 } from "./shared.types";
 import User from "@/database/user.model";
 import { revalidatePath } from "next/cache";
+import { model } from "mongoose";
 
 export async function getQuestions(params: GetQuestionsParams) {
   try {
