@@ -15,13 +15,11 @@ import React from "react";
 const Page = async ({ params, searchParams }: any) => {
   const result = await getQuestionById({ questionId: params._id });
   const { userId: clerkId } = auth();
-
   let mongoUser;
 
   if (clerkId) {
     mongoUser = await getUserById({ userId: clerkId });
   }
-
   return (
     <>
       <div className="flex-start w-full flex-col">
@@ -104,6 +102,8 @@ const Page = async ({ params, searchParams }: any) => {
         questionId={result._id}
         userId={mongoUser._id}
         totalAnswers={result.answers.length}
+        page={searchParams?.page}
+        filter={searchParams?.filter}
       />
       <Answer
         question={result.content}
