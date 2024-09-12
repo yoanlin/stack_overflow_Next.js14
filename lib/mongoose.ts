@@ -8,7 +8,6 @@ export const connectToDatabase = async () => {
   if (!process.env.MONGODB_URL) return console.log("MISSING MONGODB_URL");
 
   if (isConnected) {
-    console.log("MongoDB is already connected");
     return;
   }
   try {
@@ -16,7 +15,6 @@ export const connectToDatabase = async () => {
       dbName: "devflow",
     });
     isConnected = true;
-    console.log("MongoDB is connected");
   } catch (error) {
     console.log("MongoDB connection failed", error);
   }
