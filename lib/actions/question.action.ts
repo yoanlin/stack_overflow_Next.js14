@@ -65,8 +65,6 @@ export async function getQuestions(params: GetQuestionsParams) {
 
     const isNext = totalQuestions > skipAmount + questions.length;
 
-    console.log("從這裡開始: ", questions);
-
     return { questions, isNext };
   } catch (error) {
     console.log(error);
