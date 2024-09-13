@@ -18,6 +18,7 @@ import Image from "next/image";
 import { createAnswer } from "@/lib/actions/answer.action";
 import { usePathname } from "next/navigation";
 import tinymce from "tinymce";
+import { toast } from "@/hooks/use-toast";
 
 interface Props {
   question: string;
@@ -47,7 +48,9 @@ const Answer = ({ question, questionId, authorId }: Props) => {
         question: JSON.parse(questionId),
         path: pathName,
       });
-
+      toast({
+        title: "Your answer got posted.",
+      });
       form.reset(); // to enable to add another answer if needed
 
       if (editorRef.current) {
