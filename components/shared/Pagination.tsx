@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { formUrlQuery } from "@/lib/utils";
 import { Button } from "../ui/button";
-import page from "@/app/(root)/(home)/page";
 
 interface Props {
   pageNumber: number;

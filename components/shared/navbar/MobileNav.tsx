@@ -12,7 +12,6 @@ import { SignedOut, SignOutButton } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import { sidebarLinks } from "@/constants";
 import { usePathname } from "next/navigation";
-import path from "path";
 
 const MobileNav = () => {
   const pathname = usePathname();

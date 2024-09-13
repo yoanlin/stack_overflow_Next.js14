@@ -17,7 +17,6 @@ import { Button } from "../ui/button";
 import Image from "next/image";
 import { createAnswer } from "@/lib/actions/answer.action";
 import { usePathname } from "next/navigation";
-import tinymce from "tinymce";
 import { toast } from "@/hooks/use-toast";
 
 interface Props {

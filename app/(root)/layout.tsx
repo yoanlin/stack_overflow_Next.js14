@@ -2,7 +2,7 @@ import LeftSidebar from "@/components/shared/LeftsideBar";
 import RightSidebar from "@/components/shared/RightsideBar";
 import Navbar from "@/components/shared/navbar/Navbar";
 import { Toaster } from "@/components/ui/toaster";
-import React, { Suspense } from "react";
+import React from "react";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (

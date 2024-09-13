@@ -10,7 +10,6 @@ import {
 import Tag, { ITag } from "@/database/tag.model";
 import { FilterQuery } from "mongoose";
 import Question from "@/database/question.model";
-import { title } from "process";
 
 export async function getTopInteractedTags(params: GetTopInteractedTagsParams) {
   try {
@@ -113,11 +112,10 @@ export async function getQuestionsByTagId(params: GetQuestionsByTagIdParams) {
 
     const isNext = questions.length > pageSize;
 
-    return { tagTitle: tag.name, questions, isNext };
-
     if (!tag) {
       throw new Error("Tag not found");
     }
+    return { tagTitle: tag.name, questions, isNext };
   } catch (error) {
     console.log(error);
     throw error;

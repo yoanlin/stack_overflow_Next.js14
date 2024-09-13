@@ -1,4 +1,3 @@
-import TagCard from "@/components/cards/TagCard";
 import Filter from "@/components/shared/Filter";
 import NoResult from "@/components/shared/NoResult";
 import Pagination from "@/components/shared/Pagination";
