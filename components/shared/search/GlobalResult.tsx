@@ -55,7 +55,7 @@ const GlobalResult = () => {
         return `/tags/${id}`;
 
       default:
-        break;
+        return "/";
     }
   };
 
