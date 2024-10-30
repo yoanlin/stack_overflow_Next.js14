@@ -34,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="zh-TW">
       <body className={`${inter.variable} ${spaceGrotesk.variable}`}>
         <ClerkProvider
           appearance={{

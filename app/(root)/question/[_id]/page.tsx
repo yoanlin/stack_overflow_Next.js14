@@ -60,18 +60,12 @@ const Page = async ({ params, searchParams }: any) => {
       <div className="mt-5 mb-8 flex flex-wrap gap-4">
         <Metric
           imgUrl="/assets/icons/clock.svg"
-          alt="clock"
+          alt="clock icon"
           value={`asked ${getTimestamp(result.createdAt)}`}
-          title=" Asked"
+          title="Asked"
           textStyles="small-medium text-dark400_light800"
         />
-        <Metric
-          imgUrl="/assets/icons/like.svg"
-          alt="like"
-          value="Votes"
-          title={``}
-          textStyles="small-medium text-dark400_light800"
-        />
+
         <Metric
           imgUrl="/assets/icons/message.svg"
           alt="message"
@@ -81,7 +75,7 @@ const Page = async ({ params, searchParams }: any) => {
         />
         <Metric
           imgUrl="/assets/icons/eye.svg"
-          alt="view"
+          alt="eye"
           value={formatAndDivideNumber(result.views)}
           title="Views"
           textStyles="small-medium text-dark400_light800"

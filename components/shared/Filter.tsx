@@ -8,7 +8,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { formUrlQuery } from "@/lib/utils";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import Image from "next/image";
+import { useRouter, useSearchParams } from "next/navigation";
 
 interface Props {
   filters: {
@@ -17,9 +18,10 @@ interface Props {
   }[];
   otherClasses?: string;
   containerClasses?: string;
+  isJob?: boolean;
 }
 
-const Filter = ({ filters, otherClasses, containerClasses }: Props) => {
+const Filter = ({ filters, otherClasses, containerClasses, isJob }: Props) => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const paramFilter = searchParams.get("filter");
@@ -40,10 +42,22 @@ const Filter = ({ filters, otherClasses, containerClasses }: Props) => {
         defaultValue={paramFilter || undefined}
       >
         <SelectTrigger
-          className={`${otherClasses} body-regular light-border background-light800_dark300 text-dark500_light700 border px-5 py-2.5`}
+          className={`${otherClasses} body-regular light-border background-light800_dark300 text-dark500_light700 border px-5 py-2.5 gap-3`}
         >
+          {isJob && (
+            <Image
+              src="/assets/icons/location.svg"
+              alt="location"
+              height={20}
+              width={20}
+            />
+          )}
+
           <div className="line-clamp-1 flex-1 text-left">
-            <SelectValue placeholder="Select a Filter" />
+            <SelectValue
+              placeholder={isJob ? "Select Location" : "Select a Filter"}
+              className=""
+            />
           </div>
         </SelectTrigger>
         <SelectContent className="text-dark500_light700 small-regular border-none bg-light-900 dark:bg-dark-300">
@@ -52,7 +66,7 @@ const Filter = ({ filters, otherClasses, containerClasses }: Props) => {
               <SelectItem
                 key={filter.value}
                 value={filter.value}
-                className="focus:bg-light-800 dark:focus:bg-dark-400 cursor-pointer"
+                className="focus:bg-light-800 dark:focus:bg-dark-400 cursor-pointer py-3 body-semibold"
               >
                 {filter.name}
               </SelectItem>
